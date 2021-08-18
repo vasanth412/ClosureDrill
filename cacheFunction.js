@@ -5,13 +5,14 @@
     // then it should return the cached result and not invoke `cb` again.
     // `cb` should only ever be invoked once for a given set of arguments.
 
+
 function cacheFunction(cb) {
     let cache = {};
     return function(...args){   //spread operator.
         if(cache [args]== undefined){
             return cache [args]= cb(...args);
         }else{
-            return cache;
+            return (`{${args}} = ${cache[args]}`)
         } 
     };
 }
